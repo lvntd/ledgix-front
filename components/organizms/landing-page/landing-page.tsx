@@ -5,7 +5,7 @@ export const LandingPage = () => {
   return (
     <main>
       <ThemeToggler />
-      <Link href="/auth">Log in</Link>
+      <Link href="/login">Log in</Link>
     </main>
   )
 }

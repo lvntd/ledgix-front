@@ -467,6 +467,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lukemorales/query-key-factory@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@lukemorales/query-key-factory/-/query-key-factory-1.3.4.tgz#d14001dbd781b024df93ca73bd785db590924486"
+  integrity sha512-A3frRDdkmaNNQi6mxIshsDk4chRXWoXa05US8fBo4kci/H+lVmujS6QrwQLLGIkNIRFGjMqp2uKjC4XsLdydRw==
+
 "@napi-rs/wasm-runtime@^0.2.11":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-0.2.12.tgz#3e78a8b96e6c33a6c517e1894efbd5385a7cb6f2"
@@ -536,6 +541,13 @@
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-16.0.3.tgz#e77575eef8e243b31ae12303086aeab16abccbc0"
   integrity sha512-N7EJ6zbxgIYpI/sWNzpVKRMbfEGgsWuOIvzkML7wxAAZhPk1Msxuo/JDu1PKjWGrAoOLaZcIX5s+/pF5LIbBBg==
+
+"@next/third-parties@^16.0.3":
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/@next/third-parties/-/third-parties-16.0.3.tgz#9201eed8e24f8bfd007934e942a36e98704181a1"
+  integrity sha512-QjTRQ4ydXguFkpMCUMl5oSslxmh8mAtmnzc9DEtLkZcGmAuQcZg2M3lswMn62sdID+F06crS3IQ58X3sjjBLVA==
+  dependencies:
+    third-party-capital "1.0.20"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -912,6 +924,11 @@
   resolved "https://registry.yarnpkg.com/@radix-ui/rect/-/rect-1.1.1.tgz#78244efe12930c56fd255d7923865857c41ac8cb"
   integrity sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==
 
+"@react-oauth/google@^0.12.2":
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/@react-oauth/google/-/google-0.12.2.tgz#082086fcfac1309e4e66413e7a30d24f452445e9"
+  integrity sha512-d1GVm2uD4E44EJft2RbKtp8Z1fp/gK8Lb6KHgs3pHlM0PxCXGLaq8LLYQYENnN4xPWO1gkL4apBtlPKzpLvZwg==
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
@@ -1033,6 +1050,30 @@
     postcss "^8.4.41"
     tailwindcss "4.1.17"
 
+"@tanstack/query-core@5.90.10":
+  version "5.90.10"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.90.10.tgz#2704b038277fb41e631f356e7428951b5354ed13"
+  integrity sha512-EhZVFu9rl7GfRNuJLJ3Y7wtbTnENsvzp+YpcAV7kCYiXni1v8qZh++lpw4ch4rrwC0u/EZRnBHIehzCGzwXDSQ==
+
+"@tanstack/query-devtools@5.90.1":
+  version "5.90.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-devtools/-/query-devtools-5.90.1.tgz#c57a739a5293f4960a4a6b6fb4b7e4a56e6bd932"
+  integrity sha512-GtINOPjPUH0OegJExZ70UahT9ykmAhmtNVcmtdnOZbxLwT7R5OmRztR5Ahe3/Cu7LArEmR6/588tAycuaWb1xQ==
+
+"@tanstack/react-query-devtools@^5.90.2":
+  version "5.90.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.90.2.tgz#248d6ae89ace7dc2da816fa95cdc2b4f63c9e4d2"
+  integrity sha512-vAXJzZuBXtCQtrY3F/yUNJCV4obT/A/n81kb3+YqLbro5Z2+phdAbceO+deU3ywPw8B42oyJlp4FhO0SoivDFQ==
+  dependencies:
+    "@tanstack/query-devtools" "5.90.1"
+
+"@tanstack/react-query@^5.90.10":
+  version "5.90.10"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.90.10.tgz#dc2d4acbe1c06b708ccaeed43a26ad56bc5d1718"
+  integrity sha512-BKLss9Y8PQ9IUjPYQiv3/Zmlx92uxffUOX8ZZNoQlCIZBJPT5M+GOMQj7xislvVQ6l1BstBjcX0XB/aHfFYVNw==
+  dependencies:
+    "@tanstack/query-core" "5.90.10"
+
 "@tybys/wasm-util@^0.10.0", "@tybys/wasm-util@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@tybys/wasm-util/-/wasm-util-0.10.1.tgz#ecddd3205cf1e2d5274649ff0eedd2991ed7f414"
@@ -1044,6 +1085,11 @@
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
+
+"@types/js-cookie@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-3.0.6.tgz#a04ca19e877687bd449f5ad37d33b104b71fdf95"
+  integrity sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==
 
 "@types/json-schema@^7.0.15":
   version "7.0.15"
@@ -1603,6 +1649,11 @@ data-view-byte-offset@^1.0.1:
     es-errors "^1.3.0"
     is-data-view "^1.0.1"
 
+dayjs@^1.11.19:
+  version "1.11.19"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.19.tgz#15dc98e854bb43917f12021806af897c58ae2938"
+  integrity sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==
+
 debug@^3.2.7:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
@@ -2126,6 +2177,11 @@ for-each@^0.3.3, for-each@^0.3.5:
   dependencies:
     is-callable "^1.2.7"
 
+fp-ts@^2.16.11:
+  version "2.16.11"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.16.11.tgz#831a10514bf4e22adf12065732fc5a20c85d9623"
+  integrity sha512-LaI+KaX2NFkfn1ZGHoKCmcfv7yrZsC3b8NtWsTVQeHkq4F27vI5igUuO53sxqDEa2gNQMHFPmpojDw/1zmUK7w==
+
 function-bind@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.2.tgz#2c02d864d97f3ea6c8830c464cbd11ab6eab7a1c"
@@ -2304,6 +2360,13 @@ hermes-parser@^0.25.1:
   integrity sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==
   dependencies:
     hermes-estree "0.25.1"
+
+hoist-non-react-statics@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+  dependencies:
+    react-is "^16.7.0"
 
 ignore@^5.2.0:
   version "5.3.2"
@@ -2553,6 +2616,11 @@ jiti@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-2.6.1.tgz#178ef2fc9a1a594248c20627cd820187a4d78d92"
   integrity sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==
+
+js-cookie@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -3027,7 +3095,19 @@ react-dom@19.2.0:
   dependencies:
     scheduler "^0.27.0"
 
-react-is@^16.13.1:
+react-google-recaptcha-v3@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.11.0.tgz#e65ab48f6f30398dd659c2b0f0f893933ac09aea"
+  integrity sha512-kLQqpz/77m8+trpBwzqcxNtvWZYoZ/YO6Vm2cVTHW8hs80BWUfDpC7RDwuAvpswwtSYApWfaSpIDFWAIBNIYxQ==
+  dependencies:
+    hoist-non-react-statics "^3.3.2"
+
+react-hook-form@^7.66.1:
+  version "7.66.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.66.1.tgz#da56644b4ad9bd31254662d3242975681e29558c"
+  integrity sha512-2KnjpgG2Rhbi+CIiIBQQ9Df6sMGH5ExNyFl4Hw9qO7pIqMBR8Bvu9RQyjl3JM4vehzCh9soiNUM/xYMswb2EiA==
+
+react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -3420,6 +3500,11 @@ tapable@^2.2.0:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.3.0.tgz#7e3ea6d5ca31ba8e078b560f0d83ce9a14aa8be6"
   integrity sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==
 
+third-party-capital@1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/third-party-capital/-/third-party-capital-1.0.20.tgz#e218a929a35bf4d2245da9addb8ab978d2f41685"
+  integrity sha512-oB7yIimd8SuGptespDAZnNkzIz+NWaJCu2RMsbs4Wmp9zSDUM8Nhi3s2OOcqYuv3mN4hitXc8DVx+LyUmbUDiA==
+
 tinyglobby@^0.2.13:
   version "0.2.15"
   resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.15.tgz#e228dd1e638cea993d2fdb4fcd2d4602a79951c2"
@@ -3684,7 +3769,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-4.0.2.tgz#bc605eba49ce0fcd598c127fee1c236be3f22918"
   integrity sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==
 
-"zod@^3.25.0 || ^4.0.0":
+"zod@^3.25.0 || ^4.0.0", zod@^4.1.12:
   version "4.1.12"
   resolved "https://registry.yarnpkg.com/zod/-/zod-4.1.12.tgz#64f1ea53d00eab91853195653b5af9eee68970f0"
   integrity sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==
