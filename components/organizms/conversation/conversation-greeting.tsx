@@ -5,9 +5,10 @@ import { Button } from '@/components/atoms'
 import { HelpCircle } from 'lucide-react'
 import { toast } from 'sonner'
 import { useTheme } from 'next-themes'
+import { useTranslations } from 'next-intl'
 
 export const ConversationGreeting = () => {
-  const t = (val: string) => val
+  const t = useTranslations()
   const { resolvedTheme } = useTheme()
 
   return (

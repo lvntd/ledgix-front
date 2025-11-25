@@ -1,7 +1,8 @@
+import React from 'react'
+import { useTranslations } from 'next-intl'
 import clsx from 'clsx'
 import dayjs from 'dayjs'
 import { Link } from '@/i18n/navigation'
-import React from 'react'
 
 type Props = {
   date?: string | null
@@ -10,7 +11,7 @@ type Props = {
 }
 
 export const MessageDate = ({ date, className, showDisclaimer }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
   if (date === undefined || date === null) {
     return null
   }

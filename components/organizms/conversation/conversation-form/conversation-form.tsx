@@ -15,6 +15,7 @@ import {
 } from '@/configs'
 import { Button } from '@/components/atoms'
 import { Textarea } from '@/components/atoms/textarea'
+import { useTranslations } from 'next-intl'
 
 export type ConversationFormInput = {
   message: string
@@ -33,7 +34,7 @@ export const ConversationForm = ({
   defaultValues,
   disabledInput,
 }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
   const isMobile = useMedia('(max-width: 1023px)')
 
   const formMethods = useForm<ConversationFormInput>({

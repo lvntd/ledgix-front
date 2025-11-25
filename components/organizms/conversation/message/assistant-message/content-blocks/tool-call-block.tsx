@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { useTranslations } from 'next-intl'
 import { Search, GeorgianLari, type LucideIcon, Brain } from 'lucide-react'
 import { IContentBlockToolCall } from '@/services'
 import clsx from 'clsx'
@@ -6,7 +7,7 @@ import clsx from 'clsx'
 type Props = { contentBlock: IContentBlockToolCall }
 
 export const ToolCallBlock = memo(({ contentBlock }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
 
   let Icon: LucideIcon
 

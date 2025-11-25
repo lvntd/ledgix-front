@@ -15,9 +15,10 @@ import { Message } from './message'
 import { ConversationForm } from './conversation-form'
 import { ConversationHeader } from './conversation-header'
 import { ConversationGreeting } from './conversation-greeting'
+import { useTranslations } from 'next-intl'
 
 export const Conversation = () => {
-  const t = (val: string) => val
+  const t = useTranslations()
   const { canChat } = useAuth()
 
   const [buyAlert, setBuyAlert] = useState(false) // Is buy tokens alert visible

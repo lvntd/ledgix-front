@@ -5,7 +5,6 @@ import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Toaster } from '@/components/atoms/sonner'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import type { Metadata } from 'next'
@@ -38,14 +37,12 @@ export default async function RootLayout({ children, params }: Props) {
     notFound()
   }
 
-  const messages = await getMessages()
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider>
           <NuqsAdapter>
             <QueryProvider>
               <ThemeProvider

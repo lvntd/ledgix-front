@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/atoms/select'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   value: IConversationStyle
@@ -15,7 +16,7 @@ type Props = {
 }
 
 export const SelectConversationStyle = ({ value, onChange }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
 
   const options: Array<IConversationStyle> = [
     'normal',

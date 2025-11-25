@@ -7,6 +7,7 @@ import {
   DialogDescription,
   DialogTitle,
 } from '@/components/atoms/dialog'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 type Props = {
@@ -22,7 +23,7 @@ export const DialogDeleteConversation = ({
   onDelete,
   isLoading,
 }: Props) => {
-  const t = (value: string) => value
+  const t = useTranslations()
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">

@@ -8,11 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/atoms/select'
+import { useTranslations } from 'next-intl'
 
 type Props = { value: IBaseModel; onChange: (value: IBaseModel) => void }
 
 export const SelectBaseModel = ({ value, onChange }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
 
   const options: Array<IBaseModel> = ['claude_4_5_sonnet', 'claude_3_7_sonnet']
 

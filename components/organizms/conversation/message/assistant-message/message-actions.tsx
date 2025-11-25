@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useToggle } from 'react-use'
 import { FeedbackModal } from './feedback-modal'
@@ -22,7 +23,7 @@ export const MessageActions = ({
   messageId,
   fullText,
 }: Props) => {
-  const t = (val: string) => val
+  const t = useTranslations()
   const [isDialogOpen, toggleDialog] = useToggle(false)
   const [comment, setComment] = useState(message.feedback?.comment || '')
   const [isPositive, setIsPositive] = useState<boolean | null>(null)

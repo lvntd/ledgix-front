@@ -20,11 +20,12 @@ import { useQueryState } from 'nuqs'
 
 import { ConversationsListItem } from './conversations-list-item'
 import { Spinner } from '@/components/atoms/spinner'
+import { useTranslations } from 'next-intl'
 
 type Props = { favorites: boolean }
 
 export function ConversationsList({ favorites }: Props) {
-  const t = (val: string) => val
+  const t = useTranslations()
   const [conversationId] = useQueryState('conversationId')
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =

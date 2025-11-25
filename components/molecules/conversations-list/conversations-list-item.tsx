@@ -25,6 +25,7 @@ import {
 import { deleteConversation, IConversation } from '@/services'
 import { Link } from '@/i18n/navigation'
 import { toast } from 'sonner'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   conversation: Omit<IConversation, 'messages'>
@@ -32,7 +33,7 @@ type Props = {
 }
 
 export const ConversationsListItem = ({ conversation, isActive }: Props) => {
-  const t = (value: string) => value
+  const t = useTranslations()
   const [isDeleting, setIsDeleting] = useState(false)
   const [conversationId, setConversationId] = useQueryState('conversationId', {
     shallow: true,

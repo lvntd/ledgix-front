@@ -1,12 +1,12 @@
 import React, { memo, useEffect, useState } from 'react'
-
+import { useTranslations } from 'next-intl'
 import { IContentBlockToolCallChunk } from '@/services'
 import clsx from 'clsx'
 
 type Props = { contentBlock: IContentBlockToolCallChunk }
 
 export const ToolCallChunkBlock = memo(({ contentBlock }: Props) => {
-  const t = (val: string) => val // TODO. useTranslations
+  const t = useTranslations()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [args, setArgs] = useState<Record<string, any>>({}) // Arguments of the tool call, like { query: "მცირე ბიზნესის დაბეგვრა"}
 
