@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { QueryProvider } from '@/components/query-provider'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { Toaster } from '@/components/atoms/sonner'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -30,16 +32,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            // enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </QueryProvider>
+        <NuqsAdapter>
+          <QueryProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              // enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </QueryProvider>
+        </NuqsAdapter>
+        <Toaster position="top-right" />
       </body>
       <GoogleTagManager gtmId="GTM-5KDXH796" />
       <GoogleAnalytics gaId="G-RD2J5NS6FJ" />

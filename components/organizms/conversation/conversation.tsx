@@ -1,0 +1,76 @@
+'use client'
+
+import React, { useEffect, useRef } from 'react'
+// import { useTranslation } from 'next-i18next'
+import { useQuery } from '@tanstack/react-query'
+import { useConversation } from '@/hooks'
+import { IBaseModel, IConversationStyle, qk } from '@/services'
+import {
+  defaultBaseModel,
+  defaultConversationStyle,
+  lsConversationStyleKey,
+} from '@/configs'
+import { toast } from 'sonner'
+import { Message } from './message'
+
+export const Conversation = () => {
+  // const { t } = useTranslation()
+  // const { canChat } = useAuth()
+
+  // const [buyAlert, setBuyAlert] = useState(false) // Is buy tokens alert visible
+
+  const conversationBottomRef = useRef<HTMLDivElement>(null)
+
+  const {
+    // onSendMessage,
+    // isLoading,
+    conversationId,
+    initialData,
+    // currentState,
+  } = useConversation({
+    conversationBottomRef,
+  })
+
+  const $conversation = useQuery({
+    ...qk.conversation.details({ conversationId }),
+    enabled: conversationId !== null,
+    initialData,
+    placeholderData: (prevData) => prevData,
+    staleTime: 0,
+  })
+
+  const conversation = $conversation.data?.data
+  const messages = conversation?.messages || []
+
+  const baseModel = (localStorage.getItem('baseModelName') ||
+    defaultBaseModel) as IBaseModel
+  const conversationStyle = (localStorage.getItem(lsConversationStyleKey) ||
+    defaultConversationStyle) as IConversationStyle
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const defaultValues = {
+    message: '',
+    conversationStyle,
+    baseModel,
+  }
+
+  useEffect(() => {
+    conversationBottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages.length])
+
+  return (
+    <div className="grid flex-1 auto-rows-min gap-4 overflow-y-auto! py-4 pt-14 md:px-5">
+      <div className="max-w-3xl m-auto">
+        {messages.map((message, idx) => (
+          <Message
+            conversationId={conversation?._id || ''}
+            key={idx}
+            message={message}
+            messageId={idx}
+          />
+        ))}
+      </div>
+      <span ref={conversationBottomRef} />
+    </div>
+  )
+}

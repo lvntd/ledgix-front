@@ -1,41 +1,44 @@
 'use client'
-
 import * as React from 'react'
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
+  Blocks,
+  Calendar,
+  CirclePlus,
   Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
+  Home,
+  Inbox,
+  MessageCircleQuestion,
+  Search,
   Settings2,
-  SquareTerminal,
+  Sparkles,
+  Trash2,
 } from 'lucide-react'
-
+import { NavFavorites } from './nav-favorites'
 import { NavMain } from './nav-main'
-import { NavProjects } from './nav-projects'
-import { NavUser } from './nav-user'
+import { NavSecondary } from './nav-secondary'
+import { NavWorkspaces } from './nav-workspaces'
 import { TeamSwitcher } from './team-switcher'
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from '@/components/atoms/sidebar'
+import { ConversationsList } from './conversations-list'
+import { useMemo } from 'react'
+import { useQueryState } from 'nuqs'
 
 // This is sample data.
 const data = {
   teams: [
     {
-      name: 'Ledgix Inc',
-      logo: GalleryVerticalEnd,
+      name: 'Acme Inc',
+      logo: Command,
       plan: 'Enterprise',
     },
     {
-      name: 'Ledgix Corp.',
+      name: 'Acme Corp.',
       logo: AudioWaveform,
       plan: 'Startup',
     },
@@ -45,125 +48,175 @@ const data = {
       plan: 'Free',
     },
   ],
-  navMain: [
+
+  navSecondary: [
     {
-      title: 'Playground',
+      title: 'კალენდარი',
       url: '#',
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: 'History',
-          url: '#',
-        },
-        {
-          title: 'Starred',
-          url: '#',
-        },
-        {
-          title: 'Settings',
-          url: '#',
-        },
-      ],
+      icon: Calendar,
     },
     {
-      title: 'Models',
-      url: '#',
-      icon: Bot,
-      items: [
-        {
-          title: 'Genesis',
-          url: '#',
-        },
-        {
-          title: 'Explorer',
-          url: '#',
-        },
-        {
-          title: 'Quantum',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Documentation',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Settings',
+      title: 'პარამეტრები',
       url: '#',
       icon: Settings2,
-      items: [
+    },
+    {
+      title: 'შაბლონები',
+      url: '#',
+      icon: Blocks,
+    },
+    {
+      title: 'ურნა',
+      url: '#',
+      icon: Trash2,
+    },
+    {
+      title: 'დახმარება',
+      url: '#',
+      icon: MessageCircleQuestion,
+    },
+  ],
+  workspaces: [
+    {
+      name: 'Personal Life Management',
+      emoji: '🏠',
+      pages: [
         {
-          title: 'General',
+          name: 'Daily Journal & Reflection',
           url: '#',
+          emoji: '📔',
         },
         {
-          title: 'Team',
+          name: 'Health & Wellness Tracker',
           url: '#',
+          emoji: '🍏',
         },
         {
-          title: 'Billing',
+          name: 'Personal Growth & Learning Goals',
           url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
+          emoji: '🌟',
         },
       ],
     },
-  ],
-  projects: [
     {
-      name: 'Design Engineering',
-      url: '#',
-      icon: Frame,
+      name: 'Professional Development',
+      emoji: '💼',
+      pages: [
+        {
+          name: 'Career Objectives & Milestones',
+          url: '#',
+          emoji: '🎯',
+        },
+        {
+          name: 'Skill Acquisition & Training Log',
+          url: '#',
+          emoji: '🧠',
+        },
+        {
+          name: 'Networking Contacts & Events',
+          url: '#',
+          emoji: '🤝',
+        },
+      ],
     },
     {
-      name: 'Sales & Marketing',
-      url: '#',
-      icon: PieChart,
+      name: 'Creative Projects',
+      emoji: '🎨',
+      pages: [
+        {
+          name: 'Writing Ideas & Story Outlines',
+          url: '#',
+          emoji: '✍️',
+        },
+        {
+          name: 'Art & Design Portfolio',
+          url: '#',
+          emoji: '🖼️',
+        },
+        {
+          name: 'Music Composition & Practice Log',
+          url: '#',
+          emoji: '🎵',
+        },
+      ],
     },
     {
-      name: 'Travel',
-      url: '#',
-      icon: Map,
+      name: 'Home Management',
+      emoji: '🏡',
+      pages: [
+        {
+          name: 'Household Budget & Expense Tracking',
+          url: '#',
+          emoji: '💰',
+        },
+        {
+          name: 'Home Maintenance Schedule & Tasks',
+          url: '#',
+          emoji: '🔧',
+        },
+        {
+          name: 'Family Calendar & Event Planning',
+          url: '#',
+          emoji: '📅',
+        },
+      ],
+    },
+    {
+      name: 'Travel & Adventure',
+      emoji: '🧳',
+      pages: [
+        {
+          name: 'Trip Planning & Itineraries',
+          url: '#',
+          emoji: '🗺️',
+        },
+        {
+          name: 'Travel Bucket List & Inspiration',
+          url: '#',
+          emoji: '🌎',
+        },
+        {
+          name: 'Travel Journal & Photo Gallery',
+          url: '#',
+          emoji: '📸',
+        },
+      ],
     },
   ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const [conversationId, setConversationId] = useQueryState('conversationId')
+
+  const navMain = useMemo(
+    () => [
+      {
+        title: 'ახალი ჩათი',
+        onClick: () => setConversationId(null),
+        icon: CirclePlus,
+        isActive: conversationId === null,
+        isPrimary: true,
+      },
+      {
+        title: 'Search',
+        onClick: () => null,
+        icon: Search,
+      },
+    ],
+    [conversationId, setConversationId],
+  )
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar className="border-r-0" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
+        <NavMain items={navMain} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavFavorites favorites={data.favorites} /> */}
+        <ConversationsList favorites />
+        {/* <NavWorkspaces workspaces={data.workspaces} /> */}
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )
