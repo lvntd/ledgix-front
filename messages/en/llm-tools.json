@@ -1,0 +1,11 @@
+{
+  "tool_name": {
+    "fetch_exchange_rates": "Fetch exchange rates",
+    "retrieve_context": "Search in legislation"
+  },
+  "tool_param": {
+    "currency": "Currency",
+    "date": "Date",
+    "query": "Phrase"
+  }
+}

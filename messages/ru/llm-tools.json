@@ -1,0 +1,11 @@
+{
+  "tool_name": {
+    "fetch_exchange_rates": "Получить обменные курсы",
+    "retrieve_context": "Поиск в законодательстве"
+  },
+  "tool_param": {
+    "currency": "Валюта",
+    "date": "Дата",
+    "query": "Фраза"
+  }
+}

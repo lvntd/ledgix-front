@@ -1,0 +1,46 @@
+{
+  "difference_between_priveai_chatgpt": {
+    "content": "Prive AI is designed for tax specialists and accountants, providing specialized tax-related information, accurate sources, and secure data processing, unlike ChatGPT, which is a general-purpose AI without specific tax expertise. This makes Prive AI more reliable for tax-related matters.",
+    "title": "What is the difference between Prive AI and other AI platforms (e.g., ChatGPT)?"
+  },
+  "how_does_priveai_answer": {
+    "content": "Prive AI uses the latest artificial intelligence (LLM) along with our own database, which contains up-to-date tax information. It analyzes your question and searches a comprehensive database of tax laws and regulations to provide you with a reliable answer.",
+    "title": "How does Prive AI answer my tax-related questions?"
+  },
+  "how_to_register": {
+    "content": "To register, go to <0>this link</0> and fill in all the required fields. Review the <1>site rules</1>, <2>privacy policy</2>, <3>refund policy</3>, and if you agree, check the appropriate boxes. Then, click the 'Register' button.",
+    "title": "How do I register?"
+  },
+  "how_to_use_app": {
+    "content": "Using the application is very simple. You only need to purchase 'tokens' and then ask any question of interest in the chat.\n Our AI assistant will respond to your question in just a few seconds.",
+    "title": "How do I use the application?"
+  },
+  "other_country_taxes": {
+    "content": "Prive AI currently specializes only in the tax laws of Georgia.",
+    "title": "Can Prive AI answer questions about the tax laws of all countries?"
+  },
+  "prive_may_make_mistakes": {
+    "content": "In an attempt to be a helpful assistant, Prive AI can occasionally produce responses that are incorrect or misleading.\n This is known as information 'hallucination' and is a byproduct of some of the current limitations of modern generative artificial intelligence models. For example, in some subject areas, Prive AI might not have been trained on the most up-to-date information and may get confused when asked about current events. Another example is that PriveAI can present quotes that may look authoritative or sound convincing, but are not based on facts. In other words, PriveAI can write things that might look correct but are actually very inaccurate.\n Users should not rely on PriveAI as the sole source of truth and should carefully verify any important advice it provides. \n When working with tax issues, users should review the sources cited by PriveAI from the tax code and other subordinate acts. The law may contain important context or details that are not included in PriveAI's reasoning. Additionally, the quality of PriveAI's responses depends on the underlying sources it relies on, so checking the original content helps you identify any information that might be misinterpreted without the full context. \n You can use the thumbs down (👎) to let us know if a particular response was not helpful, or write to us at contact@priveai.ge with your thoughts or suggestions.",
+    "title": "Prive AI May Make Mistakes"
+  },
+  "tokens_cost_per_question": {
+    "content": "The number of tokens required to receive an answer depends on the type of tax and the complexity/length of your question. On average, generating a response to a question requires 10,000 tokens.",
+    "title": "How many tokens are needed to get an answer to a question on average?"
+  },
+  "what_if_information_is_wrong": {
+    "content": "We always encourage your feedback on the answers provided to ensure that Prive AI delivers the most accurate and up-to-date information. Our quality control team reviews your feedback and uses it to improve the AI model's quality. Prive AI is still in its beta version and serves as an educational, research, and reference tool. The answers provided by Prive AI do not constitute tax advice. Please always verify sources and/or consult a tax specialist.",
+    "title": "What happens if the provided information is incorrect?"
+  },
+  "what_is_token": {
+    "content": "A token is the smallest unit of text that the AI model processes. A token can be a word, part of a word, a symbol, or a punctuation mark.\n Tokenization is performed using a predefined algorithm, which allows us to calculate the resources used for analyzing your question and generating a response.",
+    "title": "What is a token?"
+  },
+  "what_to_consider_when_asking_question": {
+    "content": "When asking a question, it is important to formulate it clearly and ensure it accurately reflects the factual circumstances.",
+    "title": "What should I consider when asking a question?"
+  },
+  "why_do_i_need_tokens": {
+    "content": "The computational resources required to generate an answer to each question are measured in tokens. To generate a response from artificial intelligence, you need to have a sufficient balance of tokens.\n In our application, tokens function similarly to megabytes in mobile internet usage. You purchase a certain number of tokens in advance and then use them for AI-powered Q&A sessions.",
+    "title": "Why do I need tokens?"
+  }
+}

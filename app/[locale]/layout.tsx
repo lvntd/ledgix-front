@@ -4,6 +4,10 @@ import { QueryProvider } from '@/components/query-provider'
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Toaster } from '@/components/atoms/sonner'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import { notFound } from 'next/navigation'
+import { routing } from '@/i18n/routing'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -22,29 +26,40 @@ export const metadata: Metadata = {
   description: 'The first AI tax assistant in Georgia',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode
-}>) {
+  params: Promise<{ locale: string }>
+}
+
+export default async function RootLayout({ children, params }: Props) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+
+  const messages = await getMessages()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NuqsAdapter>
-          <QueryProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              // enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
-          </QueryProvider>
-        </NuqsAdapter>
-        <Toaster position="top-right" />
+        <NextIntlClientProvider messages={messages}>
+          <NuqsAdapter>
+            <QueryProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                // enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              </ThemeProvider>
+            </QueryProvider>
+          </NuqsAdapter>
+          <Toaster position="top-right" />
+        </NextIntlClientProvider>
       </body>
       <GoogleTagManager gtmId="GTM-5KDXH796" />
       <GoogleAnalytics gaId="G-RD2J5NS6FJ" />

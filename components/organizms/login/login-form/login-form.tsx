@@ -11,8 +11,9 @@ import {
 import { Input } from '@/components/atoms/input'
 import { LoginFormInput } from '@/services'
 import { Controller, useForm } from 'react-hook-form'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { SocialAuth } from '@/components/molecules'
+import { useTranslations } from 'next-intl'
 
 type Props = {
   defaultValues: LoginFormInput
@@ -21,6 +22,7 @@ type Props = {
 }
 
 export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
+  const t = useTranslations()
   const { handleSubmit, control } = useForm<LoginFormInput>({
     defaultValues,
   })
@@ -58,7 +60,7 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
           render={({ field, fieldState }) => (
             <Field>
               <div className="flex items-center">
-                <FieldLabel htmlFor="password">Password</FieldLabel>
+                <FieldLabel htmlFor="password">{t('password')}</FieldLabel>
                 <a
                   href="#"
                   className="ml-auto text-sm underline-offset-4 hover:underline"

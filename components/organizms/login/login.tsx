@@ -8,8 +8,10 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { getRandomWallpaper } from '@/lib/get-random-wallpaper'
 import { GalleryVerticalEnd } from 'lucide-react'
 import { LoginForm } from './login-form'
+import { useTranslations } from 'next-intl'
 
 export const Login = () => {
+  const t = useTranslations()
   const router = useRouter()
   const searchParams = useSearchParams()
   const { executeRecaptcha } = useGoogleReCaptcha()

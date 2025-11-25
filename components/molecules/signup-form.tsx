@@ -8,7 +8,7 @@ import {
   FieldSeparator,
 } from '@/components/atoms/field'
 import { Input } from '@/components/atoms/input'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 export function SignupForm({
   className,

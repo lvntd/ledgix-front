@@ -23,7 +23,7 @@ import {
   useSidebar,
 } from '@/components/atoms/sidebar'
 import { deleteConversation, IConversation } from '@/services'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { toast } from 'sonner'
 
 type Props = {

@@ -1,0 +1,21 @@
+{
+  "sections": [
+    {
+      "title": "1. General Terms",
+      "content": "Prive AI is an AI-powered tax consulting platform that provides users with tax-related advice. By completing a payment, the user agrees to this refund policy and acknowledges that refunds will not be granted in cases where the service has been properly and fully delivered."
+    },
+    {
+      "title": "2. Refund Eligibility",
+      "content": "Prive AI issues refunds only under specific circumstances, as outlined below:\n\n 2.1 Technical Malfunction\nIf a user is unable to access AI-based consultation due to a technical issue attributable to Prive AI, and the issue is not resolved within 7 business days, the user may request a full or partial refund.\n2.2 Accidental or Duplicate Payment\nIf a user unintentionally purchases a package and requests cancellation within 12 hours, without having used the service, they will receive a full refund. Additionally, if a user is charged twice for the same service due to a system error, Prive AI will fully reimburse the duplicate charge.\n2.3 Service Discontinuation or Modification \nIf Prive AI discontinues a specific package or service, the user may request a proportional refund for any unused tokens."
+    },
+    {
+      "title": "3. Refund Process and Timeframes",
+      "content": "To request a refund, the user must follow these steps:\n1. Contact Prive AI’s support team at contact@priveai.ge \n2. Submit a request including proof of payment, the user’s name, and a detailed description of the issue. \n3. Prive AI will review the request within 5 business days.\n4. If approved, the refund will be issued via the original payment method within 10 business days."
+    },
+    {
+      "title": "4. Exceptions and Non-Refundable Payments",
+      "content": "Prive AI does not issue refunds in the following cases:\n• The user successfully utilized the service and did not encounter any issues.\n• The user purchased the wrong package but has already used the service.\n• The user attempted to misuse the refund policy (e.g., submitting multiple refund requests for properly delivered services)."
+    },
+    { "title": "5. Contact Information", "content": "For any inquiries, please contact us:\n contact@priveai.ge" }
+  ]
+}

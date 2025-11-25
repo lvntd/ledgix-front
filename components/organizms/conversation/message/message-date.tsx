@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import dayjs from 'dayjs'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import React from 'react'
 
 type Props = {
