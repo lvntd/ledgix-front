@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   IContentBlock,
   IContentBlockText,
@@ -7,11 +6,9 @@ import {
   IExtendedModelMessage,
 } from '@/services'
 import { TextBlock, ToolCallBlock, ToolCallChunkBlock } from './content-blocks'
-import Image from 'next/image'
-import clsx from 'clsx'
-import { Card, CardContent } from '@/components/atoms/card'
 import { MessageDate } from '../message-date'
 import { MessageActions } from './message-actions'
+import clsx from 'clsx'
 
 type Props = {
   message: IExtendedModelMessage
@@ -24,7 +21,6 @@ export const AssistantMessage = ({
   conversationId,
   messageId,
 }: Props) => {
-  const t = (val: string) => val // TODO. useTranslations
   const orderedContent: IContentBlock[] = processContentBlock(message.content)
   let redactedText: IContentBlock[] = []
 

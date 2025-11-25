@@ -30,7 +30,6 @@ export const FeedbackModal = memo(
     onSubmit,
     onClear,
     onChangeComment,
-    isPositive,
     comment,
   }: Props) => {
     return (

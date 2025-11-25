@@ -19,6 +19,7 @@ export const MessageDate = ({ date, className, showDisclaimer }: Props) => {
     <span
       className={clsx(
         `flex items-center gap-2 text-[10px] text-muted-foreground md:opacity-0 md:group-hover:opacity-100`,
+        'transition-all duration-200 ease-in-out',
         className,
       )}
     >

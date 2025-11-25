@@ -157,6 +157,7 @@ export const useConversation = ({ conversationBottomRef }: Props) => {
   }
 
   const onSendMessage = async (data: SendConversationMessageInput) => {
+    console.log({ data })
     await sendConversationMessage(data, {
       onStart: () => {
         optimisticUpdate(data)

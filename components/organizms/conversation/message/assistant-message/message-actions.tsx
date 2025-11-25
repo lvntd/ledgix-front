@@ -7,6 +7,7 @@ import { Copy, ThumbsDown, ThumbsUp } from 'lucide-react'
 import { IExtendedModelMessage, qk, saveConversationFeedback } from '@/services'
 import { toast } from 'sonner'
 import copy from 'copy-to-clipboard'
+import clsx from 'clsx'
 
 type Props = {
   message: IExtendedModelMessage
@@ -62,7 +63,12 @@ export const MessageActions = ({
         onClose={() => toggleDialog(false)}
         onSubmit={() => handleSubmit(isPositive, comment)}
       />
-      <div className="flex gap-[2px] group-hover:opacity-100 md:opacity-0">
+      <div
+        className={clsx(
+          'flex gap-[2px] group-hover:opacity-100 md:opacity-0',
+          'transition-all duration-200 ease-in-out delay-75',
+        )}
+      >
         <Button
           onClick={() => {
             setIsPositive(true)
