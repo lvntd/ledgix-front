@@ -76,7 +76,7 @@ export const ConversationsListItem = ({ conversation, isActive }: Props) => {
       />
       <SidebarMenuItem key={conversation._id}>
         <SidebarMenuButton asChild isActive={isActive}>
-          <Link href={`/dashboard?conversationId=${conversation._id}`}>
+          <Link href={`/app?conversationId=${conversation._id}`}>
             <span>{conversation.title}</span>
           </Link>
         </SidebarMenuButton>

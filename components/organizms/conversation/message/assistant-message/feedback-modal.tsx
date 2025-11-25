@@ -7,7 +7,8 @@ import {
   DialogFooter,
   DialogHeader,
 } from '@/components/atoms/dialog'
-import { Input } from '@/components/atoms/input'
+import { Textarea } from '@/components/atoms/textarea'
+import { useTranslations } from 'next-intl'
 
 import React, { memo } from 'react'
 
@@ -32,28 +33,29 @@ export const FeedbackModal = memo(
     onChangeComment,
     comment,
   }: Props) => {
+    const t = useTranslations()
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-[625px]">
           <DialogHeader>
-            <DialogTitle>TODO. შეაფასე</DialogTitle>
+            <DialogTitle>{t('i_didnt_like_the_answer')}</DialogTitle>
             <DialogDescription>
-              TODO. შენი შეფასება გვეხმარება
+              {t('chat_feedback_disclaimer')}
             </DialogDescription>
           </DialogHeader>
           <div>
-            <Input
+            <Textarea
+              className="resize-none max-h-20"
               value={comment}
               onChange={(e) => onChangeComment(e.target.value)}
             />
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={onClear}>
-              Clear
+              {t('delete')}
             </Button>
-
             <Button disabled={isLoading} type="submit" onClick={onSubmit}>
-              Save changes
+              {t('save')}
             </Button>
           </DialogFooter>
         </DialogContent>

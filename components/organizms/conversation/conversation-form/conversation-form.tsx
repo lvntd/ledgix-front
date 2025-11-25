@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { useKey, useMedia } from 'react-use'
+import { useKey } from 'react-use'
 import { ArrowUp as SendIcon } from 'lucide-react'
 import { Controller, FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/atoms'
 import { Textarea } from '@/components/atoms/textarea'
 import { useTranslations } from 'next-intl'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 export type ConversationFormInput = {
   message: string
@@ -35,7 +36,7 @@ export const ConversationForm = ({
   disabledInput,
 }: Props) => {
   const t = useTranslations()
-  const isMobile = useMedia('(max-width: 1023px)')
+  const isMobile = useIsMobile()
 
   const formMethods = useForm<ConversationFormInput>({
     defaultValues,

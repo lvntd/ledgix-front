@@ -24,6 +24,8 @@ import {
 import { ConversationsList } from '../conversations-list'
 import { useMemo } from 'react'
 import { useQueryState } from 'nuqs'
+import { useTranslations } from 'next-intl'
+import { useRouter } from '@/i18n/navigation'
 
 // This is sample data.
 const data = {
@@ -44,55 +46,60 @@ const data = {
       plan: 'Free',
     },
   ],
-
-  navSecondary: [
-    {
-      title: 'კალენდარი',
-      url: '#',
-      icon: Calendar,
-    },
-    {
-      title: 'პარამეტრები',
-      url: '#',
-      icon: Settings2,
-    },
-    {
-      title: 'შაბლონები',
-      url: '#',
-      icon: Blocks,
-    },
-    {
-      title: 'ურნა',
-      url: '#',
-      icon: Trash2,
-    },
-    {
-      title: 'დახმარება',
-      url: '#',
-      icon: MessageCircleQuestion,
-    },
-  ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const [conversationId, setConversationId] = useQueryState('conversationId')
+  const t = useTranslations()
+  const router = useRouter()
+  const [conversationId] = useQueryState('conversationId')
 
   const navMain = useMemo(
     () => [
       {
-        title: 'ახალი ჩათი',
-        onClick: () => setConversationId(null),
+        title: t('new_chat'),
+        onClick: () => router.push('/app'),
         icon: CirclePlus,
         isActive: conversationId === null,
         isPrimary: true,
       },
       {
-        title: 'Search',
+        title: t('search'),
         onClick: () => null,
         icon: Search,
       },
     ],
-    [conversationId, setConversationId],
+    [conversationId, router, t],
+  )
+
+  const navSecondary = useMemo(
+    () => [
+      {
+        title: t('calendar'),
+        url: '#',
+        icon: Calendar,
+      },
+      {
+        title: t('settings'),
+        url: '/app/settings',
+        icon: Settings2,
+      },
+      {
+        title: t('templates'),
+        url: '#',
+        icon: Blocks,
+      },
+      {
+        title: t('trash'),
+        url: '#',
+        icon: Trash2,
+      },
+      {
+        title: t('help'),
+        url: '#',
+        icon: MessageCircleQuestion,
+      },
+    ],
+    [t],
   )
   return (
     <Sidebar className="border-r-0" {...props}>
@@ -101,10 +108,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={navMain} />
       </SidebarHeader>
       <SidebarContent>
-        {/* <NavFavorites favorites={data.favorites} /> */}
-        <ConversationsList favorites />
-        {/* <NavWorkspaces workspaces={data.workspaces} /> */}
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <div className="flex-1 overflow-y-scroll">
+          <ConversationsList favorites />
+        </div>
+        <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

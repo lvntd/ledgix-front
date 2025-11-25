@@ -16,7 +16,7 @@ export const SocialAuth = () => {
       if (searchParams.get('returnUrl')) {
         router.push(searchParams.get('returnUrl') as string)
       } else {
-        router.push('/dashboard')
+        router.push('/app')
       }
     },
     onError: () => {

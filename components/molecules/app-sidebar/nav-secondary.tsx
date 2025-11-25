@@ -1,5 +1,5 @@
-import React from "react"
-import { type LucideIcon } from "lucide-react"
+import React from 'react'
+import { type LucideIcon } from 'lucide-react'
 
 import {
   SidebarGroup,
@@ -8,7 +8,8 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/atoms/sidebar"
+} from '@/components/atoms/sidebar'
+import { Link } from '@/i18n/navigation'
 
 export function NavSecondary({
   items,
@@ -28,10 +29,10 @@ export function NavSecondary({
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
-                <a href={item.url}>
+                <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
               {item.badge && <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>}
             </SidebarMenuItem>

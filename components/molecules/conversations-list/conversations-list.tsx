@@ -1,12 +1,7 @@
 'use client'
-import { MoreHorizontal } from 'lucide-react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/atoms/dropdown-menu'
+import { useTranslations } from 'next-intl'
+import { useQueryState } from 'nuqs'
+import { useInfiniteQuery } from '@tanstack/react-query'
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -14,13 +9,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/atoms/sidebar'
-import { useInfiniteQuery } from '@tanstack/react-query'
-import { getConversations, IConversation, qk } from '@/services'
-import { useQueryState } from 'nuqs'
-
+import { getConversations, IConversation } from '@/services'
 import { ConversationsListItem } from './conversations-list-item'
 import { Spinner } from '@/components/atoms/spinner'
-import { useTranslations } from 'next-intl'
+import { MoreHorizontal } from 'lucide-react'
 
 type Props = { favorites: boolean }
 
@@ -45,7 +37,7 @@ export function ConversationsList({ favorites }: Props) {
   const conversations: Omit<IConversation, 'messages'>[] =
     data?.pages.map((page) => page.data).flat() || []
 
-  console.log(conversations)
+  console.log(favorites)
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">

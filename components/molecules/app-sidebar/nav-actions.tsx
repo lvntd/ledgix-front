@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 import {
   ArrowDown,
   ArrowUp,
@@ -17,14 +17,14 @@ import {
   Star,
   Trash,
   Trash2,
-} from "lucide-react"
+} from 'lucide-react'
 
-import { Button } from "@/components/atoms/button"
+import { Button } from '@/components/atoms/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/atoms/popover"
+} from '@/components/atoms/popover'
 import {
   Sidebar,
   SidebarContent,
@@ -33,66 +33,66 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/atoms/sidebar"
+} from '@/components/atoms/sidebar'
 
 const data = [
   [
     {
-      label: "Customize Page",
+      label: 'Customize Page',
       icon: Settings2,
     },
     {
-      label: "Turn into wiki",
+      label: 'Turn into wiki',
       icon: FileText,
     },
   ],
   [
     {
-      label: "Copy Link",
+      label: 'Copy Link',
       icon: Link,
     },
     {
-      label: "Duplicate",
+      label: 'Duplicate',
       icon: Copy,
     },
     {
-      label: "Move to",
+      label: 'Move to',
       icon: CornerUpRight,
     },
     {
-      label: "Move to Trash",
+      label: 'Move to Trash',
       icon: Trash2,
     },
   ],
   [
     {
-      label: "Undo",
+      label: 'Undo',
       icon: CornerUpLeft,
     },
     {
-      label: "View analytics",
+      label: 'View analytics',
       icon: LineChart,
     },
     {
-      label: "Version History",
+      label: 'Version History',
       icon: GalleryVerticalEnd,
     },
     {
-      label: "Show delete pages",
+      label: 'Show delete pages',
       icon: Trash,
     },
     {
-      label: "Notifications",
+      label: 'Notifications',
       icon: Bell,
     },
   ],
   [
     {
-      label: "Import",
+      label: 'Import',
       icon: ArrowUp,
     },
     {
-      label: "Export",
+      label: 'Export',
       icon: ArrowDown,
     },
   ],
@@ -100,10 +100,6 @@ const data = [
 
 export function NavActions() {
   const [isOpen, setIsOpen] = React.useState(false)
-
-  React.useEffect(() => {
-    setIsOpen(true)
-  }, [])
 
   return (
     <div className="flex items-center gap-2 text-sm">

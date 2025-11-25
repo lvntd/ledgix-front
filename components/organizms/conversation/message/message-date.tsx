@@ -27,7 +27,7 @@ export const MessageDate = ({ date, className, showDisclaimer }: Props) => {
       {dayjs(date).format('DD MMM HH:mm:ss')}
       {showDisclaimer && (
         <span className="hidden md:block">
-          {`| ${t('faq:prive_may_make_mistakes.title')}.`}
+          {`| ${t('prive_may_make_mistakes.title')}.`}
           <Link className="ml-1" href="/faq" target="_blank">
             {t('learn_the_details')}
           </Link>

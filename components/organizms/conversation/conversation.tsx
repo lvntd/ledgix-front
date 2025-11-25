@@ -67,7 +67,7 @@ export const Conversation = () => {
       {conversationId === null && messages.length === 0 && (
         <ConversationGreeting />
       )}
-      <div className="grid flex-1 auto-rows-min gap-4 overflow-y-auto! py-4 pt-14 md:px-5 max-w-3xl m-auto grow">
+      <div className="grid flex-1 auto-rows-min gap-4 overflow-y-auto! py-4 pt-14 px-5 max-w-3xl w-full m-auto grow">
         {messages.map((message, idx) => (
           <Message
             conversationId={conversation?._id || ''}

@@ -1,16 +1,5 @@
-import { AppSidebar, NavActions } from '@/components/molecules/app-sidebar'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbPage,
-} from '@/components/atoms/breadcrumb'
-import { Separator } from '@/components/atoms/separator'
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/components/atoms/sidebar'
+import { AppSidebar } from '@/components/molecules/app-sidebar'
+import { SidebarInset, SidebarProvider } from '@/components/atoms/sidebar'
 import { AuthProvider } from '@/contexts'
 import AuthGuard from '@/components/molecules/auth-guard/auth-guard'
 
