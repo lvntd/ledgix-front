@@ -2,18 +2,17 @@
 import * as React from 'react'
 import {
   AudioWaveform,
-  Blocks,
   Calendar,
   CirclePlus,
   Command,
   MessageCircleQuestion,
   Search,
   Settings2,
+  ShieldCheck,
   Trash2,
 } from 'lucide-react'
 import { NavMain } from './nav-main'
 import { NavSecondary } from './nav-secondary'
-
 import { TeamSwitcher } from './team-switcher'
 import {
   Sidebar,
@@ -21,7 +20,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/atoms/sidebar'
-import { ConversationsList } from '../conversations-list'
+import { ConversationsList } from './conversations-list'
 import { useMemo } from 'react'
 import { useQueryState } from 'nuqs'
 import { useTranslations } from 'next-intl'
@@ -74,8 +73,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const navSecondary = useMemo(
     () => [
       {
+        title: t('ai_audit'),
+        url: '/app/audit',
+        icon: ShieldCheck,
+        badge: (
+          <span className="px-1 rounded-full bg-primary text-primary-foreground opacity-80">
+            {t('soon')}
+          </span>
+        ),
+      },
+      {
         title: t('calendar'),
-        url: '#',
+        url: '/app/calendar',
         icon: Calendar,
       },
       {
@@ -84,18 +93,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: Settings2,
       },
       {
-        title: t('templates'),
-        url: '#',
-        icon: Blocks,
-      },
-      {
         title: t('trash'),
-        url: '#',
+        url: '/app/trash',
         icon: Trash2,
       },
       {
         title: t('help'),
-        url: '#',
+        url: '/app/help',
         icon: MessageCircleQuestion,
       },
     ],

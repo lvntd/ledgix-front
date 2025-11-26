@@ -9,14 +9,13 @@ import { getRandomWallpaper } from '@/lib/get-random-wallpaper'
 import { GalleryVerticalEnd } from 'lucide-react'
 import { LoginForm } from './login-form'
 import { useTranslations } from 'next-intl'
+import { toast } from 'sonner'
 
 export const Login = () => {
   const t = useTranslations()
   const router = useRouter()
   const searchParams = useSearchParams()
   const { executeRecaptcha } = useGoogleReCaptcha()
-
-  console.log(searchParams.get('returnUrl'))
 
   const wallpaper = useMemo(
     () => getRandomWallpaper(),
@@ -53,8 +52,8 @@ export const Login = () => {
             router.push('/app')
           }
         },
-        onError: () => {
-          alert('TODO. handle error')
+        onError: (error) => {
+          toast.error(t(error.message))
         },
       },
     )

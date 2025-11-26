@@ -1,24 +1,21 @@
 'use client'
-
 import React, { useEffect, useRef, useState } from 'react'
-// import { useTranslation } from 'next-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { useAuth, useConversation } from '@/hooks'
-import { IBaseModel, IConversationStyle, qk } from '@/services'
 import {
   defaultBaseModel,
   defaultConversationStyle,
   lsConversationStyleKey,
 } from '@/configs'
-import { toast } from 'sonner'
 import { Message } from './message'
 import { ConversationForm } from './conversation-form'
 import { ConversationHeader } from './conversation-header'
 import { ConversationGreeting } from './conversation-greeting'
-import { useTranslations } from 'next-intl'
+import { IBaseModel, IConversationStyle, qk } from '@/services'
+import { toast } from 'sonner'
+import clsx from 'clsx'
 
 export const Conversation = () => {
-  const t = useTranslations()
   const { canChat } = useAuth()
 
   const [buyAlert, setBuyAlert] = useState(false) // Is buy tokens alert visible
@@ -34,6 +31,8 @@ export const Conversation = () => {
   } = useConversation({
     conversationBottomRef,
   })
+
+  console.log(currentState, buyAlert) // TODO. show alert and handle state
 
   const $conversation = useQuery({
     ...qk.conversation.details({ conversationId }),
@@ -63,11 +62,18 @@ export const Conversation = () => {
 
   return (
     <div className="relative min-h-dvh max-h-dvh flex flex-col">
-      <ConversationHeader title={conversation?.title || null} />
+      <ConversationHeader conversation={conversation} />
       {conversationId === null && messages.length === 0 && (
         <ConversationGreeting />
       )}
-      <div className="grid flex-1 auto-rows-min gap-4 overflow-y-auto! py-4 pt-14 px-5 max-w-3xl w-full m-auto grow">
+      <div
+        className={clsx(
+          'grid auto-rows-min gap-4',
+          'flex-1 max-w-3xl w-full m-auto  overflow-y-auto!',
+          'py-4 pt-14 px-5',
+          '[&::-webkit-scrollbar-track]:hidden [-ms-overflow-style:none] [scrollbar-width:none]',
+        )}
+      >
         {messages.map((message, idx) => (
           <Message
             conversationId={conversation?._id || ''}
@@ -83,7 +89,6 @@ export const Conversation = () => {
         disabledInput={isLoading}
         key={conversationId}
         onSubmit={(values) => {
-          console.log({ values })
           if (canChat) {
             onSendMessage({
               conversationId,

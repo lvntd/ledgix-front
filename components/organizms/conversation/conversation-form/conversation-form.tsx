@@ -78,7 +78,7 @@ export const ConversationForm = ({
   return (
     <FormProvider {...formMethods}>
       <form
-        className="shadow-conversation-form flex w-full items-end gap-3 rounded-xl bg-card text-card-foreground max-w-3xl m-auto p-[17px_16px] mb-5"
+        className="flex w-full items-end gap-3 rounded-xl bg-secondary text-secondary-foreground dark:bg-secondary-foreground dark:text-foreground max-w-3xl m-auto p-[17px_16px] mb-5"
         id="conversation-form"
         onSubmit={handleSubmit(onSubmit)}
       >

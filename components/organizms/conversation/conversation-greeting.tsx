@@ -39,7 +39,8 @@ export const ConversationGreeting = () => {
         {t('chat_v2_subtitle')}
       </p>
       <Button
-        variant="secondary"
+        variant="ghost"
+        className="cursor-pointer hover:bg-secondary hover:text-secondary-foreground rounded-3xl"
         onClick={() => {
           toast.success('TODO. Tour started')
         }}

@@ -4,6 +4,7 @@ import { Button } from '@/components/atoms/button'
 import {
   Field,
   FieldDescription,
+  FieldError,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
@@ -51,6 +52,7 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
                 placeholder="m@example.com"
                 required
               />
+              <FieldError>{fieldState.error?.message}</FieldError>
             </Field>
           )}
         />
@@ -69,6 +71,7 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
                 </a>
               </div>
               <Input {...field} id="password" type="password" required />
+              <FieldError>{fieldState.error?.message}</FieldError>
             </Field>
           )}
         />

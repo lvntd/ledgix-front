@@ -7,8 +7,6 @@ import { Button } from '@/components/atoms'
 export const ThemeToggler = () => {
   const { resolvedTheme, setTheme } = useTheme()
 
-  console.log(resolvedTheme)
-
   return (
     <Button
       size={'icon'}

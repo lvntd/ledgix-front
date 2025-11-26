@@ -15,13 +15,9 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
   const pathName = usePathname()
   const auth = useAuth()
 
-  console.log(auth)
-
   useEffect(
     () => {
       const accessToken = Cookies.get(authConfigs.storageTokenKeyName)
-
-      console.log({ accessToken })
 
       if (!accessToken && pathName !== '/signup') {
         router.replace(`/login?returnUrl=${pathName}`)

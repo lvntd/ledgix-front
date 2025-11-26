@@ -34,6 +34,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/atoms/sidebar'
+import { IConversation } from '@/services'
+import dayjs from 'dayjs'
 
 const data = [
   [
@@ -98,13 +100,17 @@ const data = [
   ],
 ]
 
-export function NavActions() {
+type Props = { conversation?: IConversation }
+
+export function NavActions({ conversation }: Props) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <div className="flex items-center gap-2 text-sm">
       <div className="text-muted-foreground hidden font-medium md:inline-block">
-        Edit Oct 08
+        {conversation?.updatedAt
+          ? dayjs(conversation?.updatedAt).format('DD MMM. HH:mm')
+          : ''}
       </div>
       <Button variant="ghost" size="icon" className="h-7 w-7">
         <Star />

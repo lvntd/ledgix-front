@@ -30,6 +30,8 @@ export const AssistantMessage = ({
 
   const resourceChunkIds = message.resourceChunkIds
 
+  console.log(resourceChunkIds) // TODO. show answer resources
+
   let textToCopy = ''
 
   if (redactedText.length > 0) {
@@ -44,11 +46,9 @@ export const AssistantMessage = ({
       .join('\n')
   }
 
-  console.log(textToCopy, resourceChunkIds, conversationId, messageId)
-
   return (
-    <div className="relative flex gap-4">
-      <div className="group relative h-fit min-w-32 text-sm transition-all duration-200 md:mb-3 md:max-w-[80%]">
+    <div className="relative flex gap-4 max-w-[80%]">
+      <div className="group relative h-fit min-w-32 text-sm transition-all duration-200 md:mb-3 ">
         <div
           className={clsx(
             'text-sm',

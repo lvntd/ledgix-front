@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useQueryState } from 'nuqs'
+import { useLocale, useTranslations } from 'next-intl'
 import { DialogDeleteConversation } from './dialog-delete-conversation'
 import {
   ArrowUpRight,
@@ -25,7 +26,7 @@ import {
 import { deleteConversation, IConversation } from '@/services'
 import { Link } from '@/i18n/navigation'
 import { toast } from 'sonner'
-import { useTranslations } from 'next-intl'
+import copy from 'copy-to-clipboard'
 
 type Props = {
   conversation: Omit<IConversation, 'messages'>
@@ -34,6 +35,7 @@ type Props = {
 
 export const ConversationsListItem = ({ conversation, isActive }: Props) => {
   const t = useTranslations()
+  const locale = useLocale()
   const [isDeleting, setIsDeleting] = useState(false)
   const [conversationId, setConversationId] = useQueryState('conversationId', {
     shallow: true,
@@ -97,13 +99,27 @@ export const ConversationsListItem = ({ conversation, isActive }: Props) => {
               <span>Remove from Favorites</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                copy(
+                  `${window.origin}/${locale}/app?conversationId=${conversation._id}`,
+                )
+                toast.success(t('text_copied'))
+              }}
+            >
               <LinkIcon className="text-muted-foreground" />
-              <span>Copy Link</span>
+              <span>{t('copy_link')}</span>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                window.open(
+                  `${window.origin}/${locale}/app?conversationId=${conversation._id}`,
+                  '_tab',
+                )
+              }}
+            >
               <ArrowUpRight className="text-muted-foreground" />
-              <span>Open in New Tab</span>
+              <span>{t('open_in_new_tab')}</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => setIsDeleting(true)}>

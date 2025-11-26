@@ -1,6 +1,7 @@
 import React from 'react'
 import { IExtendedModelMessage } from '@/services'
 import { MessageDate } from './message-date'
+import clsx from 'clsx'
 
 type Props = { message: IExtendedModelMessage }
 
@@ -17,9 +18,17 @@ export const UserMessage = ({ message }: Props) => {
   }
 
   return (
-    <div className="group relative mb-2 h-fit min-w-24 max-w-[95%] justify-self-end whitespace-pre-line rounded-[14px] bg-[#7963E6] p-4 text-sm text-white shadow-chat-message md:max-w-[80%]">
-      <p>{text}</p>
-      <MessageDate className="right-2" date={message.date} />
+    <div className="group flex flex-col items-end">
+      <div
+        className={clsx(
+          'relative mb-2 h-fit  justify-self-end whitespace-pre-line rounded-[14px]  p-4 text-sm  md:max-w-[80%]',
+          'min-w-24 max-w-[95%]',
+          'bg-accent text-accent-foreground',
+        )}
+      >
+        <p>{text}</p>
+      </div>
+      <MessageDate date={message.date} />
     </div>
   )
 }

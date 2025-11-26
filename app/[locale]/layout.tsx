@@ -8,7 +8,11 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import type { Metadata } from 'next'
-import './globals.css'
+import dayjs from 'dayjs'
+import ka from 'dayjs/locale/ka'
+import en from 'dayjs/locale/en'
+import ru from 'dayjs/locale/ru'
+import '../globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +40,9 @@ export default async function RootLayout({ children, params }: Props) {
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }
+
+  const localesMap = { ka, en, ru }
+  dayjs.locale(localesMap[locale as keyof typeof localesMap])
 
   return (
     <html lang="en" suppressHydrationWarning>

@@ -6,7 +6,7 @@ type Props = { text: string }
 
 export const TextBlock = memo(({ text }: Props) => {
   return (
-    <div className="markdown mt-3">
+    <div className="markdown mt-3 text-wrap max-w-full">
       <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
     </div>
   )

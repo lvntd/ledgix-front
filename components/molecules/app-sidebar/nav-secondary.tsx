@@ -10,25 +10,27 @@ import {
   SidebarMenuItem,
 } from '@/components/atoms/sidebar'
 import { Link } from '@/i18n/navigation'
+import { usePathname } from 'next/navigation'
 
-export function NavSecondary({
-  items,
-  ...props
-}: {
+type Props = {
   items: {
     title: string
     url: string
     icon: LucideIcon
     badge?: React.ReactNode
   }[]
-} & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
+} & React.ComponentPropsWithoutRef<typeof SidebarGroup>
+
+export function NavSecondary({ items, ...props }: Props) {
+  const pathname = usePathname()
+
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton asChild isActive={pathname.includes(item.url)}>
                 <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>

@@ -41,7 +41,7 @@ export function ConversationsList({ favorites }: Props) {
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Favorites</SidebarGroupLabel>
+      <SidebarGroupLabel>{t('chat_history')}</SidebarGroupLabel>
       <SidebarMenu>
         {conversations.map((conversation) => (
           <ConversationsListItem

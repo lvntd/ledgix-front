@@ -28,8 +28,7 @@ const AuthProvider = ({ children }: Props) => {
     ...qk.user.details,
     enabled: Boolean(Cookies.get(authConfigs.storageTokenKeyName)),
   })
-  console.log($user)
-  console.log('accessToken', Cookies.get(authConfigs.storageTokenKeyName))
+
   const loading = $user.isLoading
   const [user, setUser] = useState<IUser | null>(null)
   const canChat = user

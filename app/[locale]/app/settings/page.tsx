@@ -1,7 +1,8 @@
 import React from 'react'
+import { Settings } from '@/components/organizms'
 
 const SettingsPage = () => {
-  return <div>SettingsPage</div>
+  return <Settings />
 }
 
 export default SettingsPage
