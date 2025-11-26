@@ -5,12 +5,14 @@ import { ReactNode, useEffect } from 'react'
 import authConfigs from '@/configs/auth'
 import Image from 'next/image'
 import Cookies from 'js-cookie'
+import { useTranslations } from 'next-intl'
 
 interface AuthGuardProps {
   children: ReactNode
 }
 
 const AuthGuard = ({ children }: AuthGuardProps) => {
+  const t = useTranslations()
   const router = useRouter()
   const pathName = usePathname()
   const auth = useAuth()
@@ -37,7 +39,7 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
           src="/app-logos/logo-solid.svg"
           width={70}
         />
-        <p className="mt-2">{'Loading...'}</p>
+        <p className="mt-2">{t('loading')}</p>
       </main>
     )
   }

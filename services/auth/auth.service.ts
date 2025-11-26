@@ -6,7 +6,7 @@ import {
   TChangePasswordResponse,
   TUserResponse,
   VerifyAccountInput,
-  UpdatePasswordInput
+  UpdatePasswordInput,
 } from './auth.codecs'
 import { post, get, put } from '../request'
 import { decodeJson } from '../decodeJson'
@@ -20,7 +20,10 @@ export const signup = async ({ token, body }: SignupInput) => {
   }
   const query = new URLSearchParams({ token })
 
-  return pipe(await post(`${auth}/signup`, { body, query }), decodeJson(TUserResponse))
+  return pipe(
+    await post(`${auth}/signup`, { body, query }),
+    decodeJson(TUserResponse),
+  )
 }
 
 type LoginInput = { token?: string; body: LoginFormInput }
@@ -43,7 +46,10 @@ export const getUserInfo = async () => {
 }
 
 export const changePassword = async (input: ChangePasswordFormInput) => {
-  return pipe(await put(`${auth}/change-password`, { body: input }), decodeJson(TChangePasswordResponse))
+  return pipe(
+    await put(`${auth}/change-password`, { body: input }),
+    decodeJson(TChangePasswordResponse),
+  )
 }
 
 export const verifyAccount = async (input: VerifyAccountInput) => {
@@ -60,21 +66,32 @@ export const resetPassword = async ({ email }: ResetPasswordInput) => {
   return pipe(await post(`${auth}/password-reset`, { body }))
 }
 
-export const updatePassword = async ({ token, newPassword, confirmPassword }: UpdatePasswordInput) => {
+export const updatePassword = async ({
+  token,
+  newPassword,
+  confirmPassword,
+}: UpdatePasswordInput) => {
   return pipe(
     await put(`${auth}/password-reset`, {
-      body: { token, newPassword, confirmPassword }
-    })
+      body: { token, newPassword, confirmPassword },
+    }),
   )
 }
 
-export type LoginWithGoogleInput = { credential?: string; clientId?: string; select_by?: string }
+export type LoginWithGoogleInput = { access_token?: string }
 
 export const loginWithGoogle = async (values: LoginWithGoogleInput) => {
   return pipe(await post(`${auth}/google`, { body: values }))
 }
 
-export type EditProfileFormValues = { fullName: string; phoneNumber: string; companyName: string }
+export type EditProfileFormValues = {
+  fullName: string
+  phoneNumber: string
+  companyName: string
+}
 export const editProfile = async (values: EditProfileFormValues) => {
-  return pipe(await post(`${auth}/me`, { body: values }), decodeJson(TUserResponse))
+  return pipe(
+    await post(`${auth}/me`, { body: values }),
+    decodeJson(TUserResponse),
+  )
 }

@@ -45,7 +45,7 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
           name="email"
           render={({ field, fieldState }) => (
             <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel htmlFor="email">{t('email')}</FieldLabel>
               <Input
                 {...field}
                 id="email"
@@ -67,7 +67,7 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
                   href="#"
                   className="ml-auto text-sm underline-offset-4 hover:underline"
                 >
-                  Forgot your password?
+                  {t('forgot_password')}
                 </a>
               </div>
               <Input {...field} id="password" type="password" required />
@@ -77,16 +77,16 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
         />
         <Field>
           <Button type="submit" disabled={isPending}>
-            Login
+            {t('login')}
           </Button>
         </Field>
-        <FieldSeparator>Or continue with</FieldSeparator>
+        <FieldSeparator>{t('or_continue_with')}</FieldSeparator>
         <Field>
           <SocialAuth />
           <FieldDescription className="text-center">
-            Don&apos;t have an account?{' '}
+            {t('dont_have_account')}{' '}
             <Link href="/signup" className="underline underline-offset-4">
-              Sign up
+              {t('get_registered')}
             </Link>
           </FieldDescription>
         </Field>

@@ -4,6 +4,7 @@ import {
   AudioWaveform,
   Calendar,
   CirclePlus,
+  Coins,
   Command,
   MessageCircleQuestion,
   Search,
@@ -25,6 +26,8 @@ import { useMemo } from 'react'
 import { useQueryState } from 'nuqs'
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'
+import { useAuth } from '@/hooks'
+import numeral from 'numeral'
 
 // This is sample data.
 const data = {
@@ -51,6 +54,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const t = useTranslations()
   const router = useRouter()
   const [conversationId] = useQueryState('conversationId')
+  const { user } = useAuth()
+
+  const remainingTokens = user?.remainingTokens || 0
 
   const navMain = useMemo(
     () => [
@@ -88,6 +94,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: Calendar,
       },
       {
+        title: t('tokens'),
+        url: '/app/payments',
+        icon: Coins,
+        badge: (
+          <span className="px-1 rounded-full bg-primary text-primary-foreground opacity-80">
+            {numeral(remainingTokens).format('0,0')}
+          </span>
+        ),
+      },
+      {
         title: t('settings'),
         url: '/app/settings',
         icon: Settings2,
@@ -103,7 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: MessageCircleQuestion,
       },
     ],
-    [t],
+    [t, remainingTokens],
   )
   return (
     <Sidebar className="border-r-0" {...props}>

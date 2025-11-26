@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google'
+import { useGoogleLogin } from '@react-oauth/google'
 import { loginWithGoogle } from '@/services'
 import { Button } from '@/components/atoms'
 import { GoogleIcon } from '@/assets'
@@ -29,22 +29,16 @@ export const SocialAuth = () => {
   })
 
   const login = useGoogleLogin({
-    onSuccess: (credentials) => toast(JSON.stringify(credentials)),
+    onSuccess: (credentials) =>
+      $loginWithGoogle.mutate({ access_token: credentials.access_token }),
   })
 
   return (
     <>
       <Button variant="outline" type="button" onClick={() => login()}>
         <GoogleIcon />
-        Login with Google
+        {t('login_with_google')}
       </Button>
-      <GoogleLogin
-        locale={'ka'} // TODO. handle locale
-        onSuccess={(credentials) => $loginWithGoogle.mutate(credentials)}
-        size="medium"
-        theme="filled_blue"
-        useOneTap
-      />
     </>
   )
 }
