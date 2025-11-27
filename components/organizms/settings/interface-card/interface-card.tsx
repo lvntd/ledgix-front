@@ -15,7 +15,7 @@ export const InterfaceCard = () => {
   const t = useTranslations()
 
   return (
-    <Card className="flex flex-col gap-7 m-auto bg-card w-full  mb-5">
+    <Card className="flex flex-col gap-7 m-auto bg-card w-full mb-5 pb-14">
       <CardHeader>
         <CardTitle>{t('interface')}</CardTitle>
         <CardDescription>

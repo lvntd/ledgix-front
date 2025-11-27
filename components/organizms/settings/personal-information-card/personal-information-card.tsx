@@ -42,7 +42,7 @@ export const PersonalInformationCard = () => {
     $user.data.data
 
   return (
-    <Card className="flex flex-col gap-7 m-auto bg-card w-full  mb-5">
+    <Card className="flex flex-col gap-7 m-auto bg-card w-full mb-5 pb-14">
       <CardHeader>
         <CardTitle>{t('personal_information')}</CardTitle>
         <CardDescription>თქვენი ინფორმაცია დაცულია</CardDescription>

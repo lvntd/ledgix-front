@@ -1,7 +1,8 @@
 import React from 'react'
+import { Payments } from '@/components/organizms'
 
 const PaymentsPage = () => {
-  return <div>PaymentsPage</div>
+  return <Payments />
 }
 
 export default PaymentsPage

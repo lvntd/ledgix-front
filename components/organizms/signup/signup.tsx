@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { useMemo } from 'react'
 import { GalleryVerticalEnd } from 'lucide-react'
 
 import { SignupForm } from './signup-form'
 import { getRandomWallpaper } from '@/lib/get-random-wallpaper'
 
 export const Signup = () => {
+  const wallpaper = useMemo(() => getRandomWallpaper(1), [])
+
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -25,10 +27,15 @@ export const Signup = () => {
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img
-          src={getRandomWallpaper(1)}
+          src={wallpaper.path}
           alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          className="absolute inset-0 h-full w-full object-cover  dark:brightness-[0.8] dark:grayscale"
         />
+        <a
+          className="absolute bottom-1 right-1 text-sm text-white/60"
+          target="_blank"
+          href={wallpaper.url}
+        >{`Author: ${wallpaper.author}`}</a>
       </div>
     </div>
   )

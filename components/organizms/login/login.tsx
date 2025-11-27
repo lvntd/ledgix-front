@@ -17,10 +17,7 @@ export const Login = () => {
   const searchParams = useSearchParams()
   const { executeRecaptcha } = useGoogleReCaptcha()
 
-  const wallpaper = useMemo(
-    () => getRandomWallpaper(),
-    [], // Empty deps means it only runs once
-  )
+  const wallpaper = useMemo(() => getRandomWallpaper(), [])
 
   // TODO. Create an event handler so you can call the verification on button click event or form submit
   const handleReCaptchaVerify = useCallback(async () => {
@@ -82,10 +79,15 @@ export const Login = () => {
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img
-          src={wallpaper}
+          src={wallpaper.path}
           alt="Image"
           className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.8] dark:grayscale"
         />
+        <a
+          className="absolute bottom-1 right-1 text-sm text-white/60"
+          target="_blank"
+          href={wallpaper.url}
+        >{`Author: ${wallpaper.author}`}</a>
       </div>
     </div>
   )
