@@ -12,13 +12,13 @@ const TUser = z.object({
   isVerified: z.boolean(),
   consent: z.boolean(),
   companyName: z.string().nullable().optional(),
-  role: z.string()
+  role: z.string(),
 })
 
 export type IUser = z.infer<typeof TUser>
 
 export const TUserResponse = z.object({
-  data: TUser
+  data: TUser,
 })
 
 export type IUserResponse = z.infer<typeof TUserResponse>
@@ -38,7 +38,6 @@ export type ChangePasswordFormInput = {
   currentPassword: string
   newPassword: string
   confirmPassword: string
-  email: string
 }
 
 export type ResetPasswordInput = {
@@ -52,6 +51,6 @@ export type UpdatePasswordInput = {
 
 export const TChangePasswordResponse = z.object({
   data: z.object({
-    message: z.string()
-  })
+    message: z.string(),
+  }),
 })

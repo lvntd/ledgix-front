@@ -1,44 +1,48 @@
 import React from 'react'
-import { editProfileFormSchema } from './validations'
-import { useTranslations } from 'next-intl'
-import { EditProfileFormValues } from '@/services'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
+import { ChangePasswordFormInput } from '@/services'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { changePasswordFormSchema } from './validations'
+import { useTranslations } from 'next-intl'
 import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
 import { Input } from '@/components/atoms/input'
 import { Button } from '@/components/atoms'
+import { InputPassword } from '@/components/molecules'
 
 type Props = {
-  defaultValues: EditProfileFormValues
-  onSubmit: (values: EditProfileFormValues) => void
+  defaultValues: ChangePasswordFormInput
+  onSubmit: (values: ChangePasswordFormInput) => void
   isPending: boolean
 }
 
-export const EditProfileForm = ({
-  defaultValues,
+export const ChangePasswordForm = ({
   onSubmit,
+  defaultValues,
   isPending,
 }: Props) => {
   const t = useTranslations()
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control } = useForm<ChangePasswordFormInput>({
     defaultValues,
-    resolver: zodResolver(editProfileFormSchema(t)),
+    resolver: zodResolver(changePasswordFormSchema(t)),
   })
 
   return (
     <div className="flex w-full max-w-96 flex-col gap-2">
+      <h3 className="text-center font-semibold">{t('change_password')}</h3>
       <form
         className="flex w-full flex-col gap-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Controller
           control={control}
-          name="fullName"
+          name="currentPassword"
           render={({ field, fieldState }) => (
             <Field>
-              <FieldLabel htmlFor="fullName">{t('full_name')}</FieldLabel>
+              <FieldLabel htmlFor="currentPassword">
+                {t('current_password')}
+              </FieldLabel>
               <div>
-                <Input id="fullName" {...field} />
+                <InputPassword id="currentPassword" {...field} />
                 <FieldError>{fieldState.error?.message}</FieldError>
               </div>
             </Field>
@@ -46,12 +50,12 @@ export const EditProfileForm = ({
         />
         <Controller
           control={control}
-          name="phoneNumber"
+          name="newPassword"
           render={({ field, fieldState }) => (
             <Field>
-              <FieldLabel htmlFor="phoneNumber">{t('phone_number')}</FieldLabel>
+              <FieldLabel htmlFor="newPassword">{t('new_password')}</FieldLabel>
               <div>
-                <Input id="phoneNumber" {...field} />
+                <InputPassword id="newPassword" {...field} />
                 <FieldError>{fieldState.error?.message}</FieldError>
               </div>
             </Field>
@@ -59,19 +63,21 @@ export const EditProfileForm = ({
         />
         <Controller
           control={control}
-          name="companyName"
+          name="confirmPassword"
           render={({ field, fieldState }) => (
             <Field>
-              <FieldLabel htmlFor="companyName">{t('company_name')}</FieldLabel>
+              <FieldLabel htmlFor="confirmPassword">
+                {t('confirm_password')}
+              </FieldLabel>
               <div>
-                <Input id="companyName" {...field} />
+                <InputPassword id="confirmPassword" {...field} />
                 <FieldError>{fieldState.error?.message}</FieldError>
               </div>
             </Field>
           )}
         />
         <Button disabled={isPending} type="submit">
-          {t('save')}
+          {t('change_password')}
         </Button>
       </form>
     </div>

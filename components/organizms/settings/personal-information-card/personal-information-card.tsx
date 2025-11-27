@@ -49,7 +49,7 @@ export const PersonalInformationCard = () => {
         <CardTitle>პერსონალური ინფორმაცია</CardTitle>
         <CardDescription>თქვენი ინფორმაცია დაცულია</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-5">
+      <CardContent className="flex flex-col gap-3 items-center justify-center">
         {!isVerified && <AccountVerificationAlert />}
         <EditProfileForm
           defaultValues={{

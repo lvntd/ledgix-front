@@ -28,6 +28,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'
 import { useAuth } from '@/hooks'
 import numeral from 'numeral'
+import { cn } from '@/lib/utils'
 
 // This is sample data.
 const data = {
@@ -83,7 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: '/app/audit',
         icon: ShieldCheck,
         badge: (
-          <span className="px-1 rounded-full bg-primary text-primary-foreground opacity-80">
+          <span className="px-1 rounded-full bg-secondary text-secondary-foreground opacity-80">
             {t('soon')}
           </span>
         ),
@@ -98,7 +99,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: '/app/payments',
         icon: Coins,
         badge: (
-          <span className="px-1 rounded-full bg-primary text-primary-foreground opacity-80">
+          <span
+            className={cn(
+              'px-1 rounded-full text-primary-foreground opacity-80',
+              remainingTokens < 0 ? 'bg-destructive' : 'bg-primary',
+            )}
+          >
             {numeral(remainingTokens).format('0,0')}
           </span>
         ),

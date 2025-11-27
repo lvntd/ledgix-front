@@ -1,7 +1,7 @@
+import { TFunction } from '@/lib'
 import { z } from 'zod'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const editProfileFormSchema = (t: any) =>
+export const editProfileFormSchema = (t: TFunction) =>
   z.object({
     fullName: z
       .string()

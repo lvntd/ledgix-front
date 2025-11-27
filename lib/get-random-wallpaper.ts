@@ -10,9 +10,8 @@ const wallpapers = [
   '/wallpapers/businessman.jpg',
 ]
 
-export const getRandomWallpaper = (): string => {
+export const getRandomWallpaper = (add = 0): string => {
   const today = dayjs().day()
 
-  console.log(today)
-  return wallpapers[today]
+  return wallpapers[today + add]
 }

@@ -13,8 +13,10 @@ import { Input } from '@/components/atoms/input'
 import { LoginFormInput } from '@/services'
 import { Controller, useForm } from 'react-hook-form'
 import { Link } from '@/i18n/navigation'
-import { SocialAuth } from '@/components/molecules'
+import { InputPassword, SocialAuth } from '@/components/molecules'
 import { useTranslations } from 'next-intl'
+import { loginFormSchema } from './validations'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 type Props = {
   defaultValues: LoginFormInput
@@ -26,12 +28,15 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
   const t = useTranslations()
   const { handleSubmit, control } = useForm<LoginFormInput>({
     defaultValues,
+    resolver: zodResolver(loginFormSchema(t)),
+    mode: 'onSubmit',
   })
 
   return (
     <form
       className={cn('flex flex-col gap-6')}
       onSubmit={handleSubmit(onSubmit)}
+      noValidate
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
@@ -46,13 +51,10 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
           render={({ field, fieldState }) => (
             <Field>
               <FieldLabel htmlFor="email">{t('email')}</FieldLabel>
-              <Input
-                {...field}
-                id="email"
-                placeholder="m@example.com"
-                required
-              />
-              <FieldError>{fieldState.error?.message}</FieldError>
+              <div>
+                <Input {...field} id="email" placeholder="m@example.com" />
+                <FieldError>{fieldState.error?.message}</FieldError>
+              </div>
             </Field>
           )}
         />
@@ -70,8 +72,10 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
                   {t('forgot_password')}
                 </a>
               </div>
-              <Input {...field} id="password" type="password" required />
-              <FieldError>{fieldState.error?.message}</FieldError>
+              <div>
+                <InputPassword {...field} id="password" />
+                <FieldError>{fieldState.error?.message}</FieldError>
+              </div>
             </Field>
           )}
         />
