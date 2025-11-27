@@ -34,7 +34,7 @@ export const SecurityCard = () => {
   }
 
   return (
-    <Card className="flex flex-col gap-7 max-w-3xl m-auto bg-card w-full  mb-5">
+    <Card className="flex flex-col gap-7 m-auto bg-card w-full  mb-5">
       <CardHeader>
         <CardTitle>{t('security')}</CardTitle>
         <CardDescription>

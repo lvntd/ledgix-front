@@ -22,7 +22,7 @@ export const SettingsHeader = () => {
         />
         <Breadcrumb>
           <BreadcrumbList>
-            <BreadcrumbPage className="text-sm">{t('settings')}</BreadcrumbPage>
+            <BreadcrumbPage className="text-sm">Prive AI</BreadcrumbPage>
             <BreadcrumbSeparator />
             <BreadcrumbItem>{t('settings')}</BreadcrumbItem>
           </BreadcrumbList>

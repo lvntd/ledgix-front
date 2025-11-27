@@ -132,6 +132,7 @@
   "how_to_use": "How to use",
   "i_didnt_like_the_answer": "I did not like the answer",
   "i_liked_the_answer": "I liked the answer",
+  "interface": "Interface",
   "invoice": "Invoice",
   "languages": {
     "en": "English",
@@ -195,6 +196,7 @@
   "payment_history_short": "History",
   "payments": "Payments",
   "payments_history_is_empty": "Payments history is empty",
+  "personal_information": "Personal information",
   "phone_number": "Phone number",
   "please_choose_chat_topic": "Before starting the chat, please choose a conversation topic",
   "prev": "Prev",

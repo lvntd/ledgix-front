@@ -12,12 +12,14 @@ type Props = {
   defaultValues: EditProfileFormValues
   onSubmit: (values: EditProfileFormValues) => void
   isPending: boolean
+  email: string
 }
 
 export const EditProfileForm = ({
   defaultValues,
   onSubmit,
   isPending,
+  email,
 }: Props) => {
   const t = useTranslations()
   const { handleSubmit, control } = useForm({
@@ -31,6 +33,10 @@ export const EditProfileForm = ({
         className="flex w-full flex-col gap-4"
         onSubmit={handleSubmit(onSubmit)}
       >
+        <Field>
+          <FieldLabel>{t('email')}</FieldLabel>
+          <Input disabled value={email} />
+        </Field>
         <Controller
           control={control}
           name="fullName"

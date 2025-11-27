@@ -4,14 +4,11 @@ import { useTranslations } from 'next-intl'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/atoms/card'
-import { Button } from '@/components/atoms'
 import { EditProfileForm } from './edit-profile-form'
 import { editProfile, EditProfileFormValues, qk } from '@/services'
 import { toast } from 'sonner'
@@ -41,17 +38,19 @@ export const PersonalInformationCard = () => {
     return null
   }
 
-  const { isVerified, fullName, companyName, phoneNumber } = $user.data.data
+  const { isVerified, fullName, companyName, phoneNumber, email } =
+    $user.data.data
 
   return (
-    <Card className="flex flex-col gap-7 max-w-3xl m-auto bg-card w-full  mb-5">
+    <Card className="flex flex-col gap-7 m-auto bg-card w-full  mb-5">
       <CardHeader>
-        <CardTitle>პერსონალური ინფორმაცია</CardTitle>
+        <CardTitle>{t('personal_information')}</CardTitle>
         <CardDescription>თქვენი ინფორმაცია დაცულია</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-3 items-center justify-center">
         {!isVerified && <AccountVerificationAlert />}
         <EditProfileForm
+          email={email}
           defaultValues={{
             fullName,
             companyName: companyName || '',

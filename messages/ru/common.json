@@ -132,6 +132,7 @@
   "how_to_use": "Как использовать",
   "i_didnt_like_the_answer": "Мне не понравился ответ",
   "i_liked_the_answer": "Мне понравился ответ",
+  "interface": "Интерфейс",
   "invoice": "Инвойс",
   "languages": {
     "en": "English",
@@ -195,6 +196,7 @@
   "payment_history_short": "History",
   "payments": "Платежи",
   "payments_history_is_empty": "История платежей пуста",
+  "personal_information": "Персональная информация",
   "phone_number": "Номер телефона",
   "please_choose_chat_topic": "Перед началом чата, пожалуйста, выберите тему разговора",
   "prev": "Назад",

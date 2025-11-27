@@ -131,6 +131,7 @@
   "how_to_use": "როგორ გამოვიყენო",
   "i_didnt_like_the_answer": "პასუხი არ მომეწონა",
   "i_liked_the_answer": "პასუხი მომეწონა",
+  "interface": "ინტერფეისი",
   "invoice": "ინვოისი",
   "languages": {
     "en": "English",
@@ -194,6 +195,7 @@
   "payment_history_short": "ისტორია",
   "payments": "გადახდები",
   "payments_history_is_empty": "გადახდების ისტორია ცარიელია",
+  "personal_information": "პირადი ინფორმაცია",
   "phone_number": "ტელეფონის ნომერი",
   "please_choose_chat_topic": "ჩათის დაწყებამდე გთხოვთ აირჩიოთ საუბრის თემა",
   "prev": "წინა",
