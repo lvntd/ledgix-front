@@ -1,13 +1,12 @@
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import { useForm, Controller } from 'react-hook-form'
 import { ChangePasswordFormInput } from '@/services'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { changePasswordFormSchema } from './validations'
-import { useTranslations } from 'next-intl'
 import { Field, FieldError, FieldLabel } from '@/components/atoms/field'
-import { Input } from '@/components/atoms/input'
 import { Button } from '@/components/atoms'
 import { InputPassword } from '@/components/molecules'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { changePasswordFormSchema } from './validations'
 
 type Props = {
   defaultValues: ChangePasswordFormInput
