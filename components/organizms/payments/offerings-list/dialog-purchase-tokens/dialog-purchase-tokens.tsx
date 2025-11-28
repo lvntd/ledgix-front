@@ -67,7 +67,7 @@ export const DialogPurchaseTokens = ({
               setIsAutomatic={setIsAutomatic}
             />
           </div>
-          <div className="ml-2 flex min-w-xs sm:w-max md:w-88 flex-col justify-between gap-4">
+          <div className="ml-2 flex min-w-xs sm:w-max md:w-88 flex-col  gap-4">
             <div className="flex flex-1 flex-col  gap-4 text-sm">
               <FormCheckPromoCode
                 defaultValues={{ code: appliedPromo?.code || "" }}
@@ -100,46 +100,58 @@ export const DialogPurchaseTokens = ({
                   } ₾`}
                 </p>
               </div>
-            </div>
 
-            <div className={`mt-2 flex gap-2 items-center`}>
-              <Checkbox
-                id="terms-of-service-checkbox"
-                checked={hasAgreed}
-                onCheckedChange={(value) => {
-                  if (value !== "indeterminate") {
-                    setHasAgreed(value);
-                  }
-                }}
-              />
-              <Label htmlFor="terms-of-service-checkbox" className="text-xs">
-                <p>
-                  {t.rich("agree_terms_of_use", {
-                    terms: (chunks) => (
-                      <Link target="_blank" href="/terms-of-use">
-                        {chunks}
-                      </Link>
-                    ),
-                    refund: (chunks) => (
-                      <Link target="_blank" href="/refund-policy">
-                        {chunks}
-                      </Link>
-                    ),
-                  })}
-                </p>
-              </Label>
+              <div className={`mt-2 flex gap-2 items-end flex-1`}>
+                <div className={`mt-2 flex gap-2 items-start`}>
+                  <Checkbox
+                    id="terms-of-service-checkbox"
+                    checked={hasAgreed}
+                    onCheckedChange={(value) => {
+                      if (value !== "indeterminate") {
+                        setHasAgreed(value);
+                      }
+                    }}
+                  />
+                  <Label
+                    htmlFor="terms-of-service-checkbox"
+                    className="text-xs"
+                  >
+                    <p>
+                      {t.rich("agree_terms_of_use", {
+                        terms: (chunks) => (
+                          <Link
+                            target="_blank"
+                            className="text-primary"
+                            href="/terms-of-use"
+                          >
+                            {chunks}
+                          </Link>
+                        ),
+                        refund: (chunks) => (
+                          <Link
+                            target="_blank"
+                            href="/refund-policy"
+                            className="text-primary"
+                          >
+                            {chunks}
+                          </Link>
+                        ),
+                      })}
+                    </p>
+                  </Label>
+                </div>
+              </div>
             </div>
+            <DialogFooter>
+              <Button variant="ghost" onClick={onClose}>
+                {t("close")}
+              </Button>
+              <Button disabled={!hasAgreed || isLoading} onClick={onSubmit}>
+                {t("continue")}
+              </Button>
+            </DialogFooter>
           </div>
         </div>
-
-        <DialogFooter>
-          <Button variant="ghost" onClick={onClose}>
-            {t("close")}
-          </Button>
-          <Button disabled={!hasAgreed || isLoading} onClick={onSubmit}>
-            {t("continue")}
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
