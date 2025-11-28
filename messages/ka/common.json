@@ -85,6 +85,7 @@
     "SEARCH_IN_LAW": "ძიება კანონდებლობაში..."
   },
   "copy_link": "ბმულის კოპირება",
+  "copy_text": "ტექსტის კოპირება",
   "create_your_account": "შექმენი ანგარიში",
   "current_password": "მიმდინარე პაროლი",
   "delete": "წაშლა",
@@ -126,6 +127,8 @@
   "get_tokens_short": "ტოკენები",
   "get_verification_email": "მიიღე ვერიფიკაციის მეილი",
   "get_verified_and_receive_tokens": "გაიარეთ ვერიფიკაცია და მიიღეთ <span>{tokens} ტოკენი</span> საჩუქრად.",
+  "give_negative_feedback": "უარყოფითი უკუკავშირის მიცემა",
+  "give_positive_feedback": "დადებითი უკუკავშირის მიცემა",
   "go_back": "უკან დაბრუნება",
   "go_to_app": "აპში შესვლა",
   "hello_how_can_i_help": "გამარჯობა, რით შემიძლია დაგეხმაროთ?",

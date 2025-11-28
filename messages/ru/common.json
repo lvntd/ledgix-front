@@ -86,6 +86,7 @@
     "SEARCH_IN_LAW": "Поиск в законодательстве..."
   },
   "copy_link": "Скопировать ссылку",
+  "copy_text": "Копировать текст",
   "create_your_account": "Создай аккаунт",
   "current_password": "Текущий пароль",
   "delete": "Удалить",
@@ -127,6 +128,8 @@
   "get_tokens_short": "Токены",
   "get_verification_email": "Получить письмо с подтверждением",
   "get_verified_and_receive_tokens": "Подтвердите аккаунт и получите <span>{tokens} токенов</span> бесплатно.",
+  "give_negative_feedback": "Оставить отрицательный отзыв",
+  "give_positive_feedback": "Оставить положительный отзыв",
   "go_back": "Назад",
   "go_to_app": "Перейти в приложение",
   "hello_how_can_i_help": "Здравствуйте, чем я могу вам помочь?",

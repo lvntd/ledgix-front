@@ -86,6 +86,7 @@
     "SEARCH_IN_LAW": "Searching in law..."
   },
   "copy_link": "Copy link",
+  "copy_text": "Copy text",
   "create_your_account": "Create your account",
   "current_password": "Current password",
   "delete": "Delete",
@@ -127,6 +128,8 @@
   "get_tokens_short": "Tokens",
   "get_verification_email": "Get verification email",
   "get_verified_and_receive_tokens": "Verify your account and get <span>{tokens} tokens</span> for free.",
+  "give_negative_feedback": "Give negative feedback",
+  "give_positive_feedback": "Give positive feedback",
   "go_back": "Go back",
   "go_to_app": "Go to App",
   "hello_how_can_i_help": "Hello, how can I help you?",

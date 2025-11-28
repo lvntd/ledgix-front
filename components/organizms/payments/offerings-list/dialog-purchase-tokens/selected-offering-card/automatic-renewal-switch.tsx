@@ -32,7 +32,6 @@ export const AutomaticRenewalSwitch = ({
           })}
         </ItemTitle>
         <ItemDescription>
-          {" "}
           {isAutomatic
             ? t("automatic_renewal_description")
             : t("single_payment_description")}
