@@ -40,9 +40,9 @@ export function LoginForm({ defaultValues, onSubmit, isPending }: Props) {
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="text-2xl font-bold">{t('login_to_your_account')}</h1>
           <p className="text-muted-foreground text-sm text-balance">
-            Enter your email below to login to your account
+            {t('enter_email_to_login')}
           </p>
         </div>
         <Controller
