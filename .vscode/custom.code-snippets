@@ -1,0 +1,29 @@
+{
+  // React Snippets
+  "reactArrowFunctionComponent": {
+    "prefix": "rafc",
+    "body": [
+      "import React from 'react'",
+      "",
+      "export const ${1:ComponentName} = () => {",
+      "  return <div></div>;",
+      "}",
+      ""
+    ]
+  },
+  "reactArrowFunctionComponentWithProps": {
+    "prefix": "rafcp",
+    "body": [
+      "import React from 'react'",
+      "",
+      "type Props = {",
+      "  ${2:name}: ${3:string}",
+      "}",
+      "",
+      "export const ${1:ComponentName} = ({${4:name}}: Props) => {",
+      "  return <div></div>;",
+      "}",
+      ""
+    ]
+  }
+}

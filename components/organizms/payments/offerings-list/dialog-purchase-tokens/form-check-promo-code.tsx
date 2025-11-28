@@ -1,28 +1,34 @@
-import React from 'react'
-import { useTranslations } from 'next-intl'
-import { CheckPromoCodeInput } from '@/services'
-
-import { CornerDownLeft } from 'lucide-react'
-import { Controller, useForm } from 'react-hook-form'
-import { Field, FieldLabel } from '@/components/atoms/field'
-import { Input } from '@/components/atoms/input'
-import { Button } from '@/components/atoms'
+import React from "react";
+import { useTranslations } from "next-intl";
+import { CheckPromoCodeInput } from "@/services";
+import { Controller, useForm } from "react-hook-form";
+import { Field, FieldLabel } from "@/components/atoms/field";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/atoms/input-otp";
+import { cn } from "@/lib/utils";
 
 type Props = {
-  onSubmit: (values: CheckPromoCodeInput) => void
-  defaultValues: CheckPromoCodeInput
-  isPending: boolean
-}
+  onSubmit: (values: CheckPromoCodeInput) => void;
+  defaultValues: CheckPromoCodeInput;
+  isPending: boolean;
+  isError: boolean;
+  onReset: () => void;
+};
 
 export const FormCheckPromoCode = ({
   onSubmit,
   defaultValues,
-  isPending,
+  isError,
+  onReset,
 }: Props) => {
-  const t = useTranslations()
+  const t = useTranslations();
+
   const { handleSubmit, control } = useForm<CheckPromoCodeInput>({
     defaultValues,
-  })
+  });
 
   return (
     <form className="flex items-center gap-1" onSubmit={handleSubmit(onSubmit)}>
@@ -30,15 +36,47 @@ export const FormCheckPromoCode = ({
         control={control}
         name="code"
         render={({ field }) => (
-          <Field>
-            <FieldLabel htmlFor="code">{t('promo_code')}</FieldLabel>
-            <Input {...field} />
-          </Field>
+          <div className="w-full">
+            <Field orientation={"horizontal"}>
+              <FieldLabel>{t("promo_code")}</FieldLabel>
+              <div className="relative">
+                <InputOTP
+                  className="z-10"
+                  maxLength={5}
+                  value={field.value}
+                  onChange={(value) => {
+                    field.onChange(value.toUpperCase());
+                    onReset();
+                  }}
+                  onBlur={() => {
+                    if (field.value.length === 5) {
+                      handleSubmit(onSubmit)();
+                    }
+                  }}
+                >
+                  <InputOTPGroup>
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                  </InputOTPGroup>
+                </InputOTP>
+                <p
+                  className={cn(
+                    "text-right text-xs transition-all duration-100 ease-in-out top-full",
+                    isError && field.value.length === 5
+                      ? "opacity-100"
+                      : "-translate-y-1 opacity-0"
+                  )}
+                >
+                  {t("error_code_not_found")}
+                </p>
+              </div>
+            </Field>
+          </div>
         )}
       />
-      <Button disabled={isPending} type="submit">
-        <CornerDownLeft color="white" size={16} />
-      </Button>
     </form>
-  )
-}
+  );
+};

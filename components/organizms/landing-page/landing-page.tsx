@@ -1,13 +1,13 @@
-import { ThemeToggler } from '@/components/molecules'
-import { Link } from '@/i18n/navigation'
-import Image from 'next/image'
-import FloatingLines from '@/components/molecules/floating-lines'
+import { ThemeToggler } from "@/components/molecules";
+import { Link } from "@/i18n/navigation";
+import Image from "next/image";
+import FloatingLines from "@/components/molecules/floating-lines";
 
 export const LandingPage = () => {
   return (
     <main>
-      <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
-        <nav className="flex w-full max-w-3xl items-center gap-4 fixed top-4 left-1/2 -translate-x-1/2 z-50 ps-2 pe-8 py-2 whitespace-nowrap rounded-full bg-white/60 dark:bg-slate-900/70 backdrop-blur-sm shadow-lg dark:shadow-slate-900/70 border border-gray/80 dark:border-gray-700/50 justify-between">
+      <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+        <nav className="flex w-full max-w-3xl items-center gap-4 fixed top-4 left-1/2 -translate-x-1/2 z-50 ps-3 pe-8 py-2 whitespace-nowrap rounded-full bg-white/60 dark:bg-slate-900/70 backdrop-blur-sm shadow-lg dark:shadow-slate-900/70 border border-gray/80 dark:border-gray-700/50 justify-between">
           <div className="flex items-center gap-2">
             <Image
               src="/app-logos/logo-white.svg"
@@ -44,7 +44,7 @@ export const LandingPage = () => {
           </div>
         </nav>
         <FloatingLines
-          enabledWaves={['top', 'middle', 'bottom']}
+          enabledWaves={["top", "middle", "bottom"]}
           // Array - specify line count per wave; Number - same count for all waves
           lineCount={6}
           // Array - specify line distance per wave; Number - same distance for all waves
@@ -59,5 +59,5 @@ export const LandingPage = () => {
       <ThemeToggler />
       <Link href="/login">Log in</Link>
     </main>
-  )
-}
+  );
+};
